@@ -1,0 +1,17 @@
+{
+  "name": "wctool",
+  "version": "1.0.0",
+  "description": "a command line tool as inspiration from wc",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "myWc": "./bin/index.js"
+  },
+  "author": "sibteali",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  }
+}
