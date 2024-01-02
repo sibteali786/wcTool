@@ -3,6 +3,7 @@ import yargs from "yargs";
 import path from "path";
 import { wc } from "../utils/wc.js";
 import { wcWithOutFileName } from "../utils/wcWoFile.js";
+import fs from 'fs';
 
 const { argv } = yargs(process.argv.slice(2))
   .scriptName("wcTool")
@@ -29,7 +30,6 @@ const { argv } = yargs(process.argv.slice(2))
   })
   .example("$0 -c test.txt", "Count bytes in test.txt")
   .help();
-
 let fileName = argv._[0];
 const options = {
   lines: argv.l,
@@ -41,6 +41,11 @@ const options = {
 if (!fileName) {
   wcWithOutFileName(options);
 } else {
-  const filePath = path.join(process.cwd(), fileName);
-  wc(filePath, options, fileName);
+  const content = fs.readFileSync(fileName, "utf8");
+  if (content) {
+    wc(fileName, options, fileName);
+  } else {
+    const filePath = path.join(process.cwd(), fileName);
+    wc(filePath, options, fileName);
+  }
 }
