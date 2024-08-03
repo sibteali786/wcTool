@@ -1,9 +1,11 @@
 import chalk from "chalk";
 
-export const boldRes = (input) => {
+function boldRes(input) {
   return chalk.yellow.bold(input);
-};
-
-export const fileNameBeautify = (input) => {
-	return chalk.green.underline.bold(input);
 }
+
+function fileNameBeautify(input) {
+  return chalk.green.underline.bold(input);
+}
+
+export { boldRes, fileNameBeautify };

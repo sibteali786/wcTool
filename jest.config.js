@@ -117,7 +117,7 @@ const config = {
 
   // A path to a custom resolver
   // resolver: undefined,
-
+  
   transform: {}, // Automatically restore mock state and implementation before every test
   // restoreMocks: false,
 
